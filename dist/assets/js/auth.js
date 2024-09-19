@@ -32,6 +32,11 @@ document.getElementById('signOutBtn').addEventListener('click', function () {
             document.getElementById('loginModal').style.display = 'block';
             document.getElementById('mainContent').style.display = 'none';
             clearUserInfo();
+
+            // Close the offcanvas menu if it's active
+            if ($('.offCanvas__info').hasClass('active')) {
+                $('.offCanvas__info, .offCanvas__overly').removeClass('active');
+            }
         })
         .catch((error) => {
             console.error('Error during sign-out:', error);

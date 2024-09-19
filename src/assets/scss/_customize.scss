@@ -1002,3 +1002,78 @@
         }
     }
 }
+
+/* User Info Container Styling */
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* User Photo Styling */
+.user-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #ddd;
+}
+
+/* User Details Styling */
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Username Styling */
+.user-details #userName {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--username-color); /* Use a CSS variable */
+    margin-bottom: 5px;
+}
+
+/* User Email Styling */
+.user-details #userEmail {
+    font-size: 14px;
+    color: var(--email-color); /* Use a CSS variable */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .user-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .user-photo {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .user-details {
+        text-align: left;
+    }
+    .user-details #userName {
+        font-size: 14px;
+    }
+    .user-details #userEmail {
+        font-size: 12px;
+    }
+}
+
+/* Floating Sign-Out Button Styling */
+.btn-signout {
+    bottom: 20px;
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    width: 100%;
+}
+.btn-signout:hover {
+    background-color: #d32f2f;
+}

@@ -13,23 +13,40 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
+// Function to show the login modal
+function showLoginModal() {
+    document.getElementById('loginModalOverlay').style.display = 'flex';
+    document.getElementById('loginModal').style.display = 'block';
+}
+
+// Function to hide the login modal
+function hideLoginModal() {
+    document.getElementById('loginModalOverlay').style.display = 'none';
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+// Google Sign-In button event listener
 document.getElementById('googleSignInBtn').addEventListener('click', function () {
     auth.signInWithPopup(provider)
         .then((result) => {
-            console.log('User signed in: ', result.user);
-            document.getElementById('loginModal').style.display = 'none';
+            hideLoginModal();
             document.getElementById('mainContent').style.display = 'block';
-            updateUserInfo(result.user);
+            handleSignIn(result.user); // Store the user data
+
+            // Update user info after successful sign-in
+            updateUserInfo();
         })
         .catch((error) => {
             console.error('Error during sign-in:', error);
+            alert('An error occurred. Please try again.', error);
         });
 });
 
+// Sign-Out button event listener
 document.getElementById('signOutBtn').addEventListener('click', function () {
     auth.signOut()
         .then(() => {
-            document.getElementById('loginModal').style.display = 'block';
+            showLoginModal(); // Show modal after sign-out
             document.getElementById('mainContent').style.display = 'none';
             clearUserInfo();
 
@@ -37,20 +54,28 @@ document.getElementById('signOutBtn').addEventListener('click', function () {
             if ($('.offCanvas__info').hasClass('active')) {
                 $('.offCanvas__info, .offCanvas__overly').removeClass('active');
             }
+
+            // Close the mobile menu if it's active
+            if (document.querySelector('.mobile-header-active').classList.contains('sidebar-visible')) {
+                document.querySelector('.mobile-header-active').classList.remove('sidebar-visible');
+            }
         })
         .catch((error) => {
             console.error('Error during sign-out:', error);
         });
 });
 
+// Listen for authentication state changes
 auth.onAuthStateChanged((user) => {
     if (user) {
-        document.getElementById('loginModal').style.display = 'none';
+        hideLoginModal();
         document.getElementById('mainContent').style.display = 'block';
         handleSignIn(user);
-        updateUserInfo(user);
+
+        // Update user info when auth state changes to signed-in
+        updateUserInfo();
     } else {
-        document.getElementById('loginModal').style.display = 'block';
+        showLoginModal();
         document.getElementById('mainContent').style.display = 'none';
     }
 });
@@ -66,12 +91,14 @@ function handleSignIn(user) {
     sessionStorage.setItem('userData', JSON.stringify(userData));
 }
 
-function updateUserInfo(user) {
-    const photoURL = user.photoURL || 'default-profile.png';
-    console.log('User Photo URL:', photoURL);
-    document.getElementById('userPhoto').src = photoURL;
-    document.getElementById('userName').textContent = user.displayName || 'User Name';
-    document.getElementById('userEmail').textContent = user.email || 'user@example.com';
+// Function to update user info (updated to handle multiple elements)
+function updateUserInfo() {
+    const userData = JSON.parse(sessionStorage.getItem('userData'));
+    if (userData) {
+        document.querySelectorAll('#userPhoto').forEach((img) => (img.src = userData.photo));
+        document.querySelectorAll('#userName').forEach((p) => (p.textContent = userData.name));
+        document.querySelectorAll('#userEmail').forEach((p) => (p.textContent = userData.email));
+    }
 }
 
 function clearUserInfo() {

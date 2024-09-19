@@ -3899,13 +3899,35 @@ Preloader
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  z-index: 1000;
   width: 100%;
 }
 
 .btn-signout:hover {
   background-color: #d32f2f;
+}
+
+/* Modal Overlay Styling */
+.modal-overlay {
+  position: fixed; /* Stay in place */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Ensure it's above other content */
+}
+
+.modal {
+  z-index: 1000; /* Ensure modal is above the overlay */
+}
+
+/* Blur Effect (add this to your existing .modal styles) */
+.modal {
+  backdrop-filter: blur(5px); /* Adjust blur amount as needed */
+  -webkit-backdrop-filter: blur(5px); /* For Safari support */
 }
 
 /*-----------------------------------------------------------------

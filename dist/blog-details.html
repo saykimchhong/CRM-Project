@@ -34,15 +34,16 @@
 
 <body>
     <!-- Google Sign-In Modal -->
-    <!-- sections/services/signin-modal.html -->
-    <div class="modal" id="loginModal" tabindex="-1" role="dialog" style="display: none;">
+    <!-- Modal -->
+    <div class="modal-overlay" id="loginModalOverlay" style="display: none;"></div>
+    <div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Sign in with Google</h5>
                 </div>
                 <div class="modal-body">
-                    <p>Please sign in with your Google account to access the content.</p>
+                    <p>Please sign in with your Google account.</p>
                     <button id="googleSignInBtn" class="btn btn-primary">Sign in with Google</button>
                 </div>
             </div>
@@ -182,7 +183,6 @@
             </div>
             <button id="signOutBtn" class="btn-signout">Sign Out</button>
         </div>
-        <div class="offCanvas__overly"></div>
         <div class="mobile-header-active mobile-header-wrapper-style perfect-scrollbar button-bg-2">
             <div class="mobile-header-wrapper-inner">
                 <div class="mobile-header-logo">
@@ -210,11 +210,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="work.html">Portfolio</a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="pricing.html">Pricing</a>
                                     </li>
-
                                     <li class="nav-item">
                                         <a class="nav-link" href="blog-list.html">Blog</a>
                                     </li>
@@ -222,7 +220,6 @@
                                         <a class="nav-link" href="#contact">Contact</a>
                                     </li>
                                     <li class="nav-item">
-                                        <!-- User Info -->
                                         <div class="user-info mb-30">
                                             <img id="userPhoto" src="default-profile.png" alt="User Photo" class="user-photo" />
                                             <div class="user-details">
@@ -232,7 +229,28 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <button id="signOutBtn" class="btn-signout">Sign Out</button>
+                                        <button id="signOutBtn" class="btn-signout" onclick="signOutUser()">Sign Out</button>
+                                        <script>
+                                            function signOutUser() {
+                                                auth.signOut()
+                                                    .then(() => {
+                                                        showLoginModal();
+                                                        document.getElementById('mainContent').style.display = 'none';
+
+                                                        // Close the offcanvas menu if it's active
+                                                        if ($('.offCanvas__info').hasClass('active')) {
+                                                            $('.offCanvas__info, .offCanvas__overly').removeClass('active');
+                                                        }
+
+                                                        // Close the mobile menu if it's active
+                                                        document.querySelector('.mobile-header-active').classList.remove('sidebar-visible');
+                                                        clearUserInfo();
+                                                    })
+                                                    .catch((error) => {
+                                                        console.error('Error during sign-out:', error);
+                                                    });
+                                            }
+                                        </script>
                                     </li>
                                 </ul>
                             </nav>
@@ -241,7 +259,6 @@
                 </div>
             </div>
         </div>
-        <script src="../../assets/js/user-data.js"></script>
 
     </header>
 
@@ -635,7 +652,6 @@
 
     <!-- Other scripts -->
 </body>
-<script src="../../assets/js/auth.js"></script>
 <style>
     /* Modal Styling */
     .modal {
@@ -674,5 +690,6 @@
         background-color: #357ae8;
     }
 </style>
+<script src="../../assets/js/auth.js"></script>
 
 </html>

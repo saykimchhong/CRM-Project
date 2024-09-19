@@ -25,11 +25,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="work.html">Portfolio</a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="pricing.html">Pricing</a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="blog-list.html">Blog</a>
                             </li>
@@ -37,7 +35,6 @@
                                 <a class="nav-link" href="#contact">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <!-- User Info -->
                                 <div class="user-info mb-30">
                                     <img id="userPhoto" src="default-profile.png" alt="User Photo" class="user-photo" />
                                     <div class="user-details">
@@ -47,7 +44,28 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <button id="signOutBtn" class="btn-signout">Sign Out</button>
+                                <button id="signOutBtn" class="btn-signout" onclick="signOutUser()">Sign Out</button>
+                                <script>
+                                    function signOutUser() {
+                                        auth.signOut()
+                                            .then(() => {
+                                                showLoginModal();
+                                                document.getElementById('mainContent').style.display = 'none';
+
+                                                // Close the offcanvas menu if it's active
+                                                if ($('.offCanvas__info').hasClass('active')) {
+                                                    $('.offCanvas__info, .offCanvas__overly').removeClass('active');
+                                                }
+
+                                                // Close the mobile menu if it's active
+                                                document.querySelector('.mobile-header-active').classList.remove('sidebar-visible');
+                                                clearUserInfo();
+                                            })
+                                            .catch((error) => {
+                                                console.error('Error during sign-out:', error);
+                                            });
+                                    }
+                                </script>
                             </li>
                         </ul>
                     </nav>
@@ -56,4 +74,3 @@
         </div>
     </div>
 </div>
-<script src="../../assets/js/user-data.js"></script>

@@ -28,19 +28,7 @@ function beautifyHtml() {
 }
 // Copy other resource files
 function copyAssets() {
-    return gulp
-        .src(
-            [
-                'src/assets/css/**/*',
-                'src/assets/fonts/**/*',
-                'src/assets/images/**/*',
-                'src/assets/imgs/**/*',                
-                'src/assets/img/**/*',
-                'src/assets/js/**/*',
-            ],
-            { base: 'src/assets' },
-        )
-        .pipe(gulp.dest('dist/assets'));
+    return gulp.src(['src/assets/css/**/*', 'src/assets/fonts/**/*', 'src/assets/images/**/*', 'src/assets/imgs/**/*', 'src/assets/img/**/*', 'src/assets/js/**/*'], { base: 'src/assets' }).pipe(gulp.dest('dist/assets'));
 }
 // Copy other resource files
 function copyAssetsChanged() {
@@ -55,11 +43,11 @@ gulp.task('build', gulp.series(includeHtml, beautifyHtml, buildStyles, copyAsset
 // Initialize BrowserSync and track changes
 gulp.task(
     'dev',
-    gulp.series('build', function () {        
+    gulp.series('build', function () {
         // Watch tasks
         gulp.watch('src/views/**/*.html', gulp.series(includeHtml));
         gulp.watch('src/assets/scss/**/**/*', gulp.series(buildStyles));
-        gulp.watch(['src/assets/css/**/*', 'src/assets/fonts/**/*', 'src/assets/images/**/*','src/assets/imgs/**/*', 'src/assets/img/**/*', 'src/assets/js/**/*'], copyAssetsChanged);
+        gulp.watch(['src/assets/css/**/*', 'src/assets/fonts/**/*', 'src/assets/images/**/*', 'src/assets/imgs/**/*', 'src/assets/img/**/*', 'src/assets/js/**/*'], copyAssetsChanged);
         browserSync.init({
             server: {
                 baseDir: 'dist',

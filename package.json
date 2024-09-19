@@ -18,12 +18,14 @@
         "gulp-format-html": "^2.3.0",
         "gulp-html-beautify": "^1.0.1",
         "gulp-once": "^2.1.1",
+        "gulp-replace": "^1.1.4",
         "gulp-sass": "^5.1.0",
         "gulp-sourcemaps": "^3.0.0",
         "prettier": "^3.2.4",
         "sass": "^1.62.1"
     },
     "dependencies": {
+        "dotenv": "^16.4.5",
         "firebase": "^10.13.2"
     }
 }

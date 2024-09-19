@@ -1,0 +1,10 @@
+.section-footer {
+    .navigation {
+        a {
+            color: #ffffff;
+            &:hover {
+                color: var(--tc-theme-primary-1);
+            }
+        }
+    }
+}

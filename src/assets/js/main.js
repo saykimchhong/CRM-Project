@@ -442,6 +442,7 @@
 /*=============================================
 =           Dynamic main manu       =
 =============================================*/
+// Sidebar menu
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     const currentPage = determineCurrentPage(); // Function to get the current page identifier
@@ -453,6 +454,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Mobile menu
+document.addEventListener('DOMContentLoaded', () => {
+    highlightActiveLink('.mobile-menu .nav-link'); // Target mobile menu links
+    highlightActiveLink('.navbar-nav .nav-link'); // Assuming you also want to keep the logic for the desktop menu
+});
+
+function highlightActiveLink(selector) {
+    const navLinks = document.querySelectorAll(selector);
+    const currentPage = determineCurrentPage();
+
+    navLinks.forEach((link) => {
+        if (link.getAttribute('href').toLowerCase() === currentPage) {
+            // No need for data attributes here
+            link.classList.add('active');
+        }
+    });
+}
+
+// Function to determine the current page
 function determineCurrentPage() {
     const path = window.location.pathname.split('/').pop().toLowerCase();
 

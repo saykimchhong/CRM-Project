@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sign In - Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- You can add your custom styles here -->
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Please sign in with your Google account to access the content.</p>
+            <button id="googleSignInBtn" class="sign-in-btn">Sign in with Google</button>
+        </div>
+    </div>
+
+    <script>
+        // Your Firebase config
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const provider = new firebase.auth.GoogleAuthProvider();
+
+        // Sign in with Google function
+        document.getElementById('googleSignInBtn').addEventListener('click', function() {
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    console.log('User signed in: ', result.user);
+                    // Redirect to the main content page after sign-in
+                    window.location.href = '/'; // Main content or dashboard
+                })
+                .catch((error) => {
+                    console.error('Error during sign-in:', error);
+                });
+        });
+
+        // Check if the user is already signed in and redirect
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                // Redirect to the main content if already signed in
+                window.location.href = '/';
+            }
+        });
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .login-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-card h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-card p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .sign-in-btn {
+            background-color: #4285F4;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .sign-in-btn:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</body>
+
+</html>

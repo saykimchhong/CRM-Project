@@ -9,12 +9,11 @@
         @@include("../partials/header-home-1.html",{ "classList": "navbar-light w-100" })
 
         <!-- Google Sign-In Modal -->
-        @@include("../partials/signin-modal.html") 
+        @@include("../partials/signin-modal.html")
 
         <main style="display: none;" id="mainContent">
-            <main>
-                <!-- prettier-ignore -->
-                @@include("../sections/hero/hero-1.html")
+            <!-- prettier-ignore -->
+            @@include("../sections/hero/hero-1.html")
             @@include("../sections/static/static-1.html", { "background": "bg-900" })
             @@include("../sections/services/services-1.html")
             @@include("../sections/projects/projects-1.html")
@@ -24,15 +23,14 @@
             @@include("../sections/testimonials/testimonials-1.html")
             @@include("../sections/blog/blog-1.html")
             @@include("../sections/contact/contact-1.html")
-            </main>
         </main>
 
         <!-- prettier-ignore -->
         @@include("../partials/footer-1.html")
         @@include("../partials/btn-scroll-top.html")
-        @@include("../partials/scripts.html") 
+        @@include("../partials/scripts.html")
 
         <script src="../../assets/js/auth.js"></script>
-        </style>
+        <script src="../../assets/js/main.js"></script>
     </body>
 </html>

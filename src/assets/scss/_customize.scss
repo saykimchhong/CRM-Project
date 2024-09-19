@@ -1096,7 +1096,23 @@
 
 /* Blur Effect (add this to your existing .modal styles) */
 .modal {
-    // ... other modal styles ...
     backdrop-filter: blur(5px); /* Adjust blur amount as needed */
     -webkit-backdrop-filter: blur(5px); /* For Safari support */ 
 }
+
+
+@keyframes slideUpFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px); 
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0); 
+    }
+  }
+  
+  body {
+    animation: slideUpFadeIn 0.5s ease-out; /* Adjust duration and easing */
+  }

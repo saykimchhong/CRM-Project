@@ -3930,6 +3930,20 @@ Preloader
   -webkit-backdrop-filter: blur(5px); /* For Safari support */
 }
 
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body {
+  animation: slideUpFadeIn 0.5s ease-out; /* Adjust duration and easing */
+}
+
 /*-----------------------------------------------------------------
  --------------- START THEME CUSTOMIZE ----------------------------
 -----------------------------------------------------------------*/

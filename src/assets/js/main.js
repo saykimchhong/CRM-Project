@@ -438,3 +438,38 @@
         cardScroll();
     });
 })(jQuery);
+
+/*=============================================
+=           Dynamic main manu       =
+=============================================*/
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const currentPage = determineCurrentPage(); // Function to get the current page identifier
+
+    navLinks.forEach((link) => {
+        if (link.dataset.page === currentPage) {
+            link.classList.add('active');
+        }
+    });
+});
+
+function determineCurrentPage() {
+    const path = window.location.pathname.split('/').pop().toLowerCase();
+
+    // Logic based on your file structure:
+    if (path === 'index.html' || path === '' || path === '/') {
+        return 'home'; // Example: Your homepage
+    } else if (path.includes('services')) {
+        return 'services';
+    } else if (path.includes('work')) {
+        return 'work';
+    } else if (path.includes('pricing')) {
+        return 'pricing';
+    } else if (path.includes('blog')) {
+        return 'blog';
+    } else if (path.includes('contact')) {
+        return 'blog';
+    } else {
+        return 'home'; // Default if no match found
+    }
+}

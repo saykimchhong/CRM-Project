@@ -39,7 +39,7 @@ document.getElementById('googleSignInBtn').addEventListener('click', function ()
         })
         .catch((error) => {
             console.error('Error during sign-in:', error);
-            alert('An error occurred. Please try again.', error);
+            console.log('Error code: ', error.code);
         });
 });
 
@@ -124,7 +124,6 @@ function handleSignIn(user) {
 // Function to update user info in the UI (including status)
 function updateUserInfo() {
     const userData = JSON.parse(sessionStorage.getItem('userData'));
-    console.log('User data:', userData);
     if (userData) {
         document.querySelectorAll('#userPhoto').forEach((img) => (img.src = userData.photo));
         document.querySelectorAll('#userName').forEach((p) => (p.textContent = userData.name));

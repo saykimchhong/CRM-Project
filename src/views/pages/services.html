@@ -3,13 +3,13 @@
     <head>
         @@include("../partials/head-links.html", {"title": "Zelio - Personal Portfolio Template"})
     </head>
-
     <body>
-        <!-- Google Sign-In Modal -->
-        @@include("../partials/signin-modal.html")
         <!-- prettier-ignore -->
         @@include("../partials/preloader.html")
-    @@include("../partials/header-home-1.html",{ "classList": "navbar-light w-100" })
+        @@include("../partials/header-home-1.html",{ "classList": "navbar-light w-100" })
+
+        <!-- Google Sign-In Modal -->
+        @@include("../partials/signin-modal.html")
         <main style="display: none;" id="mainContent">
             <!-- prettier-ignore -->
             @@include("../sections/services/services-list.html")

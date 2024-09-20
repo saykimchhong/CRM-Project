@@ -8,10 +8,11 @@ const firebaseConfig = {
     appId: '1:181299938153:web:76244f389fe358f8b1b3f8',
 };
 
-// Initialize Firebase using the compat version
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
+const db = firebase.firestore();
 
 // Function to show the login modal
 function showLoginModal() {
@@ -80,24 +81,55 @@ auth.onAuthStateChanged((user) => {
     }
 });
 
+// Function to handle sign-in and check if the user is an admin
 function handleSignIn(user) {
     const userData = {
         photo: user.photoURL,
         name: user.displayName,
         email: user.email,
+        uid: user.uid,
+        lastSignInTime: user.metadata.lastSignInTime,
+        status: 'User',
     };
 
-    // Store user data in sessionStorage
-    sessionStorage.setItem('userData', JSON.stringify(userData));
+    // Check if the user's email exists in the "admins" collection
+    db.collection('admins')
+        .where('adminEmail', '==', user.email)
+        .get()
+        .then((querySnapshot) => {
+            if (!querySnapshot.empty) {
+                userData.status = 'Admin';
+            }
+            // Save the userData to sessionStorage
+            sessionStorage.setItem('userData', JSON.stringify(userData));
+
+            // Save or update the user data in Firestore under the 'users' collection
+            db.collection('users')
+                .doc(user.email)
+                .set(userData)
+                .then(() => {
+                    console.log('User data successfully saved with status:', userData.status);
+                    // Call function to update UI with user data, including status
+                    updateUserInfo();
+                })
+                .catch((error) => {
+                    console.error('Error saving user data to Firestore:', error);
+                });
+        })
+        .catch((error) => {
+            console.error('Error checking admin status:', error);
+        });
 }
 
-// Function to update user info (updated to handle multiple elements)
+// Function to update user info in the UI (including status)
 function updateUserInfo() {
     const userData = JSON.parse(sessionStorage.getItem('userData'));
+    console.log('User data:', userData);
     if (userData) {
         document.querySelectorAll('#userPhoto').forEach((img) => (img.src = userData.photo));
         document.querySelectorAll('#userName').forEach((p) => (p.textContent = userData.name));
         document.querySelectorAll('#userEmail').forEach((p) => (p.textContent = userData.email));
+        document.querySelectorAll('#userStatus').forEach((p) => (p.textContent = userData.status));
     }
 }
 
@@ -105,4 +137,5 @@ function clearUserInfo() {
     document.getElementById('userPhoto').src = 'default-profile.png';
     document.getElementById('userName').textContent = '';
     document.getElementById('userEmail').textContent = '';
+    document.getElementById('userStatus').textContent = ''; // Clear status
 }

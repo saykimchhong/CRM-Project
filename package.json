@@ -25,6 +25,7 @@
         "sass": "^1.62.1"
     },
     "dependencies": {
+        "@editorjs/editorjs": "^2.30.6",
         "dotenv": "^16.4.5",
         "firebase": "^10.13.2"
     }

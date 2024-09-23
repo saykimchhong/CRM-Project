@@ -32,11 +32,12 @@
 <!-- Google Auth and normal js -->
 <script type="module" src="../../assets/js/auth.js"></script>
 <script type="module" src="../../assets/js/main.js"></script>
-<!-- <script type="module" src="../../assets/js/editor-section.js"></script> -->
+<script type="module" src="../../assets/js/editor-section.js"></script>
 
 <!-- Editor.js Tool -->
 <!-- Editor.js and tools via CDN -->
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/paragraph@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
@@ -177,7 +178,11 @@
             </div>
         </div>
     </div>
-
+    <!-- Edit/Save Buttons -->
+    <div class="edit-controls my-md-5 my-3">
+        <button id="editButton" class="btn btn-primary">Customize My Content</button>
+        <button id="saveButton" class="btn btn-success d-none">Save</button>
+    </div>
     <!-- User Info and Sign-Out Button -->
     <div class="user-info mb-30">
         <img id="userPhoto" src="default-profile.png" alt="User Photo" class="user-photo" />
@@ -467,18 +472,20 @@
         </div>
     </div>
 </section>
-        <!--Static 1-->
-<div class="section-static-1 position-relative overflow-hidden z-0 py-8 bg-6">
+        <div class="section-static-1 position-relative overflow-hidden z-0 py-8 bg-6">
     <div class="container">
         <div class="inner">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-auto col-md-6">
                     <div class="counter-item-cover counter-item">
                         <div class="content text-center mx-auto d-flex align-items-center">
-                            <span class="ds-3 count text-primary fw-medium my-0">+<span class="odometer ds-1 text-dark fw-semibold">12</span></span>
-                            <div class="text-start ms-2">
-                                <p class="fs-5 mb-0 text-300">Year of</p>
-                                <p class="fs-5 mb-0 fw-bold">Experience</p>
+                            <span class="ds-3 count text-primary fw-medium my-0">
+                                +
+                                <span class="odometer ds-1 text-dark fw-semibold" id="static-1-experienceYears" data-editable-value="12">12</span>
+                            </span>
+                            <div class="text-start ms-2" id="static-1-experienceDescription">
+                                <p class="fs-5 mb-0 text-300" id="static-1-experienceDescriptionLine1" data-editable-value="Year of">Year of</p>
+                                <p class="fs-5 mb-0 fw-bold" id="static-1-experienceDescriptionLine2" data-editable-value="Experience">Experience</p>
                             </div>
                         </div>
                     </div>
@@ -486,10 +493,13 @@
                 <div class="col-lg-auto col-md-6">
                     <div class="counter-item-cover counter-item">
                         <div class="content text-center mx-auto d-flex align-items-center">
-                            <span class="ds-3 count text-primary fw-medium my-0">+<span class="odometer ds-1 text-dark fw-semibold">250</span></span>
-                            <div class="text-start ms-2">
-                                <p class="fs-5 mb-0 text-300">Projects</p>
-                                <p class="fs-5 mb-0 fw-bold">Completed</p>
+                            <span class="ds-3 count text-primary fw-medium my-0">
+                                +
+                                <span class="odometer ds-1 text-dark fw-semibold" id="static-1-completedProjectsCount" data-editable-value="250">250</span>
+                            </span>
+                            <div class="text-start ms-2" id="static-1-completedProjectsDescription">
+                                <p class="fs-5 mb-0 text-300" id="static-1-completedProjectsDescriptionLine1" data-editable-value="Projects">Projects</p>
+                                <p class="fs-5 mb-0 fw-bold" id="static-1-completedProjectsDescriptionLine2" data-editable-value="Completed">Completed</p>
                             </div>
                         </div>
                     </div>
@@ -497,10 +507,13 @@
                 <div class="col-lg-auto col-md-6">
                     <div class="counter-item-cover counter-item">
                         <div class="content text-center mx-auto d-flex align-items-center">
-                            <span class="ds-3 count text-primary fw-medium my-0">+<span class="odometer ds-1 text-dark fw-semibold">680</span></span>
-                            <div class="text-start ms-2">
-                                <p class="fs-5 mb-0 text-300">Satisfied</p>
-                                <p class="fs-5 mb-0 fw-bold">Happy Clients</p>
+                            <span class="ds-3 count text-primary fw-medium my-0">
+                                +
+                                <span class="odometer ds-1 text-dark fw-semibold" id="static-1-happyClientsCount" data-editable-value="680">680</span>
+                            </span>
+                            <div class="text-start ms-2" id="static-1-happyClientsDescription">
+                                <p class="fs-5 mb-0 text-300" id="static-1-happyClientsDescriptionLine1" data-editable-value="Satisfied">Satisfied</p>
+                                <p class="fs-5 mb-0 fw-bold" id="static-1-happyClientsDescriptionLine2" data-editable-value="Happy Clients">Happy Clients</p>
                             </div>
                         </div>
                     </div>
@@ -508,10 +521,13 @@
                 <div class="col-lg-auto col-md-6">
                     <div class="counter-item-cover counter-item">
                         <div class="content text-center mx-auto d-flex align-items-center">
-                            <span class="ds-3 count text-primary fw-medium my-0">+<span class="odometer ds-1 text-dark fw-semibold">18</span></span>
-                            <div class="text-start ms-2">
-                                <p class="fs-5 mb-0 text-300">Awards</p>
-                                <p class="fs-5 mb-0 fw-bold">Won Received</p>
+                            <span class="ds-3 count text-primary fw-medium my-0">
+                                +
+                                <span class="odometer ds-1 text-dark fw-semibold" id="static-1-awardsWonCount" data-editable-value="18">18</span>
+                            </span>
+                            <div class="text-start ms-2" id="static-1-awardsWonDescription">
+                                <p class="fs-5 mb-0 text-300" id="static-1-awardsWonDescriptionLine1" data-editable-value="Awards">Awards</p>
+                                <p class="fs-5 mb-0 fw-bold" id="static-1-awardsWonDescriptionLine2" data-editable-value="Won Received">Won Received</p>
                             </div>
                         </div>
                     </div>
@@ -520,6 +536,7 @@
         </div>
     </div>
 </div>
+<script type="module" src="../../../assets/js/auth.js"></script>
 
         <!-- Contact 1-->
 <section id="contact" class="section-contact-1 bg-900 position-relative pt-150 pb-lg-250 pb-150 overflow-hidden">

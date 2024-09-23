@@ -130,16 +130,17 @@
             var $filter = '.masonry-active',
                 $filterItem = '.filter-item',
                 $filterMenu = '.filter-menu-active';
+
             if ($($filter).length > 0) {
                 var $grid = $($filter).isotope({
                     itemSelector: $filterItem,
-                    filter: '*',
                     masonry: {
-                        // use outer width of grid-sizer for columnWidth
-                        // columnWidth: 1,
                         columnWidth: '.grid-sizer',
                     },
                 });
+
+                // Force Isotope to re-layout to show all projects
+                $grid.isotope('layout'); // Add this line after initialization
                 // filter items on button click
                 $($filterMenu).on('click', 'button', function () {
                     var filterValue = $(this).attr('data-filter');

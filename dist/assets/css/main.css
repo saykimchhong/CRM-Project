@@ -3654,7 +3654,6 @@ Preloader
   .section-work .card-scroll .cards .card-custom .card__inner .card__image-container {
     display: flex;
     border-radius: 11px;
-    height: 300px;
     flex-shrink: 0;
   }
   .section-work .card-scroll .cards .card-custom .card__inner .card__image-container .card__image {
@@ -3942,6 +3941,16 @@ Preloader
 }
 body {
   animation: slideUpFadeIn 0.5s ease-out; /* Adjust duration and easing */
+}
+
+.editable {
+  border: 1px dashed #ccc;
+  padding: 5px;
+}
+
+.disabled {
+  pointer-events: none; /* Prevent any clicks */
+  opacity: 0.5; /* Dim the appearance */
 }
 
 /*-----------------------------------------------------------------

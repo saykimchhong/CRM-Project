@@ -39,7 +39,7 @@ document.getElementById('googleSignInBtn').addEventListener('click', function ()
         })
         .catch((error) => {
             console.error('Error during sign-in:', error);
-            console.log('Error code: ', error.code);
+            alert('An error occurred. Please try again.', error);
         });
 });
 

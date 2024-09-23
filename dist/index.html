@@ -32,11 +32,12 @@
 <!-- Google Auth and normal js -->
 <script type="module" src="../../assets/js/auth.js"></script>
 <script type="module" src="../../assets/js/main.js"></script>
-<!-- <script type="module" src="../../assets/js/editor-section.js"></script> -->
+<script type="module" src="../../assets/js/editor-section.js"></script>
 
 <!-- Editor.js Tool -->
 <!-- Editor.js and tools via CDN -->
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/paragraph@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/list@latest"></script>
@@ -159,7 +160,11 @@
             </div>
         </div>
     </div>
-
+    <!-- Edit/Save Buttons -->
+    <div class="edit-controls my-md-5 my-3">
+        <button id="editButton" class="btn btn-primary">Customize My Content</button>
+        <button id="saveButton" class="btn btn-success d-none">Save</button>
+    </div>
     <!-- User Info and Sign-Out Button -->
     <div class="user-info mb-30">
         <img id="userPhoto" src="default-profile.png" alt="User Photo" class="user-photo" />
@@ -281,40 +286,40 @@
         <main style="display: none;" id="mainContent">
             <!-- prettier-ignore -->
             <!--Home 1 Section 1-->
-<section class="section-hero-1 position-relative pt-200 pb-120 overflow-hidden">
+<section class="section-hero-1 position-relative pt-200 pb-120 overflow-hidden" id="hero-1-section">
     <div class="container position-relative z-3">
         <div class="row">
             <div class="col-lg-6 col-md-12">
-                <span class="text-dark">👋 Hi there, I'm William</span>
-                <h1 class="ds-2 mb-3">Crafting Intuitive <span class="text-primary">Digital Experiences</span></h1>
-                <p class="text-300 mb-6">I assist individuals and brands in achieving their objectives by creating and developing user-focused digital products and interactive experiences.</p>
-                <a href="assets/resume.pdf" class="btn btn-gradient me-2" target="_blank">
+                <span class="text-dark" id="hero-1-greeting">👋 Hi there, I'm William</span>
+                <h1 class="ds-2 mb-3" id="hero-1-title">Crafting Intuitive <span class="text-primary" id="hero-1-title-highlight">Digital Experiences</span></h1>
+                <p class="text-300 mb-6" id="hero-1-description">I assist individuals and brands in achieving their objectives by creating and developing user-focused digital products and interactive experiences.</p>
+                <a href="assets/resume.pdf" class="btn btn-gradient me-2" target="_blank" id="hero-1-download-btn">
                     Download CV
                     <i class="ri-download-line ms-2"></i>
                 </a>
-                <a href="#contact" class="btn btn-outline-secondary d-inline-flex align-items-center">
+                <a href="#contact" class="btn btn-outline-secondary d-inline-flex align-items-center" id="hero-1-hire-btn">
                     <span>Hire me</span>
                     <i class="ri-arrow-right-line ms-2"></i>
                 </a>
-                <p class="text-400 mt-6 mb-3">+ 12 years with professional design software</p>
+                <p class="text-400 mt-6 mb-3" id="hero-1-experience">+ 12 years with professional design software</p>
                 <div class="d-flex gap-3">
-                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900">
+                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900" id="hero-1-brand-1">
                         <img src="assets/imgs/hero/hero-1/brand-1.png" alt="brand" />
                     </div>
-                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900">
+                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900" id="hero-1-brand-2">
                         <img src="assets/imgs/hero/hero-1/brand-2.png" alt="brand" />
                     </div>
-                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900">
+                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900" id="hero-1-brand-3">
                         <img src="assets/imgs/hero/hero-1/brand-3.png" alt="brand" />
                     </div>
-                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900">
+                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900" id="hero-1-brand-4">
                         <img src="assets/imgs/hero/hero-1/brand-4.png" alt="brand" />
                     </div>
-                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900">
+                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900" id="hero-1-brand-5">
                         <img src="assets/imgs/hero/hero-1/brand-5.png" alt="brand" />
                     </div>
-                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900 d-none d-md-flex">
-                        <img src=" assets/imgs/hero/hero-1/brand-6.png" alt="brand" />
+                    <div class="brand-logo icon-xl icon-shape rounded-3 bg-900 d-none d-md-flex" id="hero-1-brand-6">
+                        <img src="assets/imgs/hero/hero-1/brand-6.png" alt="brand" />
                     </div>
                 </div>
             </div>
@@ -329,18 +334,20 @@
     <div class="position-absolute top-0 start-0 w-100 h-100 filter-invert" data-background="assets/imgs/hero/hero-1/background.png"></div>
 </section>
 
-            <!--Static 1-->
-<div class="section-static-1 position-relative overflow-hidden z-0 py-8 bg-900">
+            <div class="section-static-1 position-relative overflow-hidden z-0 py-8 bg-900">
     <div class="container">
         <div class="inner">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-auto col-md-6">
                     <div class="counter-item-cover counter-item">
                         <div class="content text-center mx-auto d-flex align-items-center">
-                            <span class="ds-3 count text-primary fw-medium my-0">+<span class="odometer ds-1 text-dark fw-semibold">12</span></span>
-                            <div class="text-start ms-2">
-                                <p class="fs-5 mb-0 text-300">Year of</p>
-                                <p class="fs-5 mb-0 fw-bold">Experience</p>
+                            <span class="ds-3 count text-primary fw-medium my-0">
+                                +
+                                <span class="odometer ds-1 text-dark fw-semibold" id="static-1-experienceYears" data-editable-value="12">12</span>
+                            </span>
+                            <div class="text-start ms-2" id="static-1-experienceDescription">
+                                <p class="fs-5 mb-0 text-300" id="static-1-experienceDescriptionLine1" data-editable-value="Year of">Year of</p>
+                                <p class="fs-5 mb-0 fw-bold" id="static-1-experienceDescriptionLine2" data-editable-value="Experience">Experience</p>
                             </div>
                         </div>
                     </div>
@@ -348,10 +355,13 @@
                 <div class="col-lg-auto col-md-6">
                     <div class="counter-item-cover counter-item">
                         <div class="content text-center mx-auto d-flex align-items-center">
-                            <span class="ds-3 count text-primary fw-medium my-0">+<span class="odometer ds-1 text-dark fw-semibold">250</span></span>
-                            <div class="text-start ms-2">
-                                <p class="fs-5 mb-0 text-300">Projects</p>
-                                <p class="fs-5 mb-0 fw-bold">Completed</p>
+                            <span class="ds-3 count text-primary fw-medium my-0">
+                                +
+                                <span class="odometer ds-1 text-dark fw-semibold" id="static-1-completedProjectsCount" data-editable-value="250">250</span>
+                            </span>
+                            <div class="text-start ms-2" id="static-1-completedProjectsDescription">
+                                <p class="fs-5 mb-0 text-300" id="static-1-completedProjectsDescriptionLine1" data-editable-value="Projects">Projects</p>
+                                <p class="fs-5 mb-0 fw-bold" id="static-1-completedProjectsDescriptionLine2" data-editable-value="Completed">Completed</p>
                             </div>
                         </div>
                     </div>
@@ -359,10 +369,13 @@
                 <div class="col-lg-auto col-md-6">
                     <div class="counter-item-cover counter-item">
                         <div class="content text-center mx-auto d-flex align-items-center">
-                            <span class="ds-3 count text-primary fw-medium my-0">+<span class="odometer ds-1 text-dark fw-semibold">680</span></span>
-                            <div class="text-start ms-2">
-                                <p class="fs-5 mb-0 text-300">Satisfied</p>
-                                <p class="fs-5 mb-0 fw-bold">Happy Clients</p>
+                            <span class="ds-3 count text-primary fw-medium my-0">
+                                +
+                                <span class="odometer ds-1 text-dark fw-semibold" id="static-1-happyClientsCount" data-editable-value="680">680</span>
+                            </span>
+                            <div class="text-start ms-2" id="static-1-happyClientsDescription">
+                                <p class="fs-5 mb-0 text-300" id="static-1-happyClientsDescriptionLine1" data-editable-value="Satisfied">Satisfied</p>
+                                <p class="fs-5 mb-0 fw-bold" id="static-1-happyClientsDescriptionLine2" data-editable-value="Happy Clients">Happy Clients</p>
                             </div>
                         </div>
                     </div>
@@ -370,10 +383,13 @@
                 <div class="col-lg-auto col-md-6">
                     <div class="counter-item-cover counter-item">
                         <div class="content text-center mx-auto d-flex align-items-center">
-                            <span class="ds-3 count text-primary fw-medium my-0">+<span class="odometer ds-1 text-dark fw-semibold">18</span></span>
-                            <div class="text-start ms-2">
-                                <p class="fs-5 mb-0 text-300">Awards</p>
-                                <p class="fs-5 mb-0 fw-bold">Won Received</p>
+                            <span class="ds-3 count text-primary fw-medium my-0">
+                                +
+                                <span class="odometer ds-1 text-dark fw-semibold" id="static-1-awardsWonCount" data-editable-value="18">18</span>
+                            </span>
+                            <div class="text-start ms-2" id="static-1-awardsWonDescription">
+                                <p class="fs-5 mb-0 text-300" id="static-1-awardsWonDescriptionLine1" data-editable-value="Awards">Awards</p>
+                                <p class="fs-5 mb-0 fw-bold" id="static-1-awardsWonDescriptionLine2" data-editable-value="Won Received">Won Received</p>
                             </div>
                         </div>
                     </div>
@@ -382,17 +398,17 @@
         </div>
     </div>
 </div>
+<script type="module" src="../../../assets/js/auth.js"></script>
 
-            <!-- service 1 -->
+            <!-- Service 1 -->
 <section class="section-service-1 pt-120 pb-120">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-7 me-auto">
-                <h3 class="ds-3 mt-3 mb-3 text-primary">What do I offer?</h3>
-                <span class="fs-5 fw-medium text-200"
-                    >My journey started with a fascination for design and technology,
-                    <br />
-                    leading me to specialize in UI/UX design
+                <h3 id="services-1-header" class="ds-3 mt-3 mb-3 text-primary" contenteditable="false">What do I offer?</h3>
+                <span id="services-1-subheader" class="fs-5 fw-medium text-200" contenteditable="false">
+                    My journey started with a fascination for design and technology, <br />
+                    leading me to specialize in UI/UX design.
                 </span>
             </div>
             <div class="col-lg-auto">
@@ -402,88 +418,61 @@
                 </a>
             </div>
         </div>
+
         <div class="row mt-6 justify-content-between">
-            <div class="col-12">
-                <div class="single-service-card-1 tg-img-reveal-item w-100 border-top border-900 p-3" data-fx="1" data-img="assets/imgs/services/services-1/img-1.png">
+            <!-- Service Cards -->
+            <div class="col-12" id="services-1-card-1">
+                <div class="single-service-card-1 tg-img-reveal-item w-100 border-top border-900 p-3">
                     <div class="service-card-details d-lg-flex align-items-center">
-                        <h3 class="service-card-title w-lg-50 w-100 mb-0">
-                            <a href="work-single.html">
+                        <h3 id="services-1-card-title-1" class="service-card-title w-lg-50 w-100 mb-0" contenteditable="false">
+                            <a href="work-single.html" class="service-link">
                                 <span class="service-number">01.</span>
                                 UI/UX Design
                             </a>
                         </h3>
-                        <a href="#" class="d-md-flex d-block ps-lg-10 align-items-center justify-content-end w-100">
-                            <p class="service-card-text my-3">
-                                Designing visually stunning and user-friendly interfaces for web <br />
-                                and mobile applications.
-                            </p>
-                            <div class="service-card-icon icon-shape ms-auto icon-md rounded-circle border">
-                                <i class="ri-arrow-right-up-line"></i>
-                            </div>
-                        </a>
+                        <p id="services-1-card-text-1" class="service-card-text my-3" contenteditable="false"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="single-service-card-1 tg-img-reveal-item w-100 border-top border-900 p-3" data-fx="1" data-img="assets/imgs/services/services-1/img-2.png">
+
+            <div class="col-12" id="services-1-card-2">
+                <div class="single-service-card-1 tg-img-reveal-item w-100 border-top border-900 p-3">
                     <div class="service-card-details d-lg-flex align-items-center">
-                        <h3 class="service-card-title w-lg-50 w-100 mb-0">
-                            <a href="work-single.html">
+                        <h3 id="services-1-card-title-2" class="service-card-title w-lg-50 w-100 mb-0" contenteditable="false">
+                            <a href="work-single.html" class="service-link">
                                 <span class="service-number">02.</span>
                                 Mobile App Design
                             </a>
                         </h3>
-                        <a href="#" class="d-md-flex d-block ps-lg-10 align-items-center justify-content-end w-100">
-                            <p class="service-card-text my-3">
-                                Designing intuitive and appealing mobile applications for both <br />
-                                iOS and Android platforms.
-                            </p>
-                            <div class="service-card-icon icon-shape ms-auto icon-md rounded-circle border">
-                                <i class="ri-arrow-right-up-line"></i>
-                            </div>
-                        </a>
+                        <p id="services-1-card-text-2" class="service-card-text my-3" contenteditable="false"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="single-service-card-1 tg-img-reveal-item w-100 border-top border-900 p-3" data-fx="1" data-img="assets/imgs/services/services-1/img-3.png">
+
+            <div class="col-12" id="services-1-card-3">
+                <div class="single-service-card-1 tg-img-reveal-item w-100 border-top border-900 p-3">
                     <div class="service-card-details d-lg-flex align-items-center">
-                        <h3 class="service-card-title w-lg-50 w-100 mb-0">
-                            <a href="work-single.html">
+                        <h3 id="services-1-card-title-3" class="service-card-title w-lg-50 w-100 mb-0" contenteditable="false">
+                            <a href="work-single.html" class="service-link">
                                 <span class="service-number">03.</span>
                                 Brand Identity Design
                             </a>
                         </h3>
-                        <a href="#" class="d-md-flex d-block ps-lg-10 align-items-center justify-content-end w-100">
-                            <p class="service-card-text my-3">
-                                Developing cohesive visual branding that resonates with your <br />
-                                target audience.
-                            </p>
-                            <div class="service-card-icon icon-shape ms-auto icon-md rounded-circle border">
-                                <i class="ri-arrow-right-up-line"></i>
-                            </div>
-                        </a>
+                        <p id="services-1-card-text-3" class="service-card-text my-3" contenteditable="false"></p>
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="single-service-card-1 tg-img-reveal-item w-100 border-top border-900 p-3 border-bottom" data-fx="1" data-img="assets/imgs/services/services-1/img-4.png">
+
+            <div class="col-12" id="services-1-card-4">
+                <div class="single-service-card-1 tg-img-reveal-item w-100 border-top border-900 p-3 border-bottom">
                     <div class="service-card-details d-lg-flex align-items-center">
-                        <h3 class="service-card-title w-lg-50 w-100 mb-0">
-                            <a href="work-single.html">
+                        <h3 id="services-1-card-title-4" class="service-card-title w-lg-50 w-100 mb-0" contenteditable="false">
+                            <a href="work-single.html" class="service-link">
                                 <span class="service-number">04.</span>
                                 Web Development
                             </a>
                         </h3>
-                        <a href="#" class="d-md-flex d-block ps-lg-10 align-items-center justify-content-end w-100">
-                            <p class="service-card-text my-3">
-                                Crafting responsive and engaging websites that align with your <br />
-                                brand and business goals.
-                            </p>
-                            <div class="service-card-icon icon-shape ms-auto icon-md rounded-circle border">
-                                <i class="ri-arrow-right-up-line"></i>
-                            </div>
-                        </a>
+                        <p id="services-1-card-text-4" class="service-card-text my-3" contenteditable="false"></p>
                     </div>
                 </div>
             </div>
@@ -491,20 +480,28 @@
     </div>
 </section>
 
-            <!-- projects 1 -->
+<script type="module" src="../../../assets/js/auth.js"></script>
+
+            <!-- Projects Section -->
 <div id="projects" class="section-projects-1 position-relative pt-120 pb-6 bg-900">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-7 me-auto">
-                <h3 class="ds-3 mt-3 mb-3 text-primary">My Latest Works</h3>
-                <span class="fs-5 fw-medium text-200">
+                <h3 class="ds-3 mt-3 mb-3 text-primary" id="project-1-title" data-editable-value="My Latest Works">My Latest Works</h3>
+                <span
+                    class="fs-5 fw-medium text-200"
+                    id="project-1-description"
+                    data-editable-value="I believe that working hard and trying to learn every day will
+                    <br />
+                    make me improve in satisfying my customers."
+                >
                     I believe that working hard and trying to learn every day will
                     <br />
                     make me improve in satisfying my customers.
                 </span>
             </div>
             <div class="col-lg-auto">
-                <a href="work.html" class="btn btn-gradient mt-lg-0 mt-5 ms-lg-auto d-none d-xl-block">
+                <a href="work.html" class="btn btn-gradient mt-lg-0 mt-5 ms-lg-auto d-none d-xl-block" id="project-1-view-all-link" data-editable-value="View All Projects">
                     View All Projects
                     <i class="ri-arrow-right-up-line"></i>
                 </a>
@@ -516,24 +513,24 @@
     <div class="container">
         <div class="text-start">
             <div class="button-group filter-button-group filter-menu-active">
-                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase active" data-filter="*">All Projects</button>
-                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase " data-filter=".brand">Branding</button>
-                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase " data-filter=".webdesign">Web Design</button>
-                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase " data-filter=".ui">UI/UX</button>
-                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase " data-filter=".app">App Dev</button>
+                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase active" data-filter="" id="project-1-all-projects-button" data-editable-value="All Projects">All Projects</button>
+                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase" data-filter=".brand" id="project-1-branding-button" data-editable-value="Branding">Branding</button>
+                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase" data-filter=".webdesign" id="project-1-webdesign-button" data-editable-value="Web Design">Web Design</button>
+                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase" data-filter=".ui" id="project-1-uiux-button" data-editable-value="UI/UX">UI/UX</button>
+                <button class="btn btn-md btn-filter mb-2 me-2 text-uppercase" data-filter=".app" id="project-1-app-dev-button" data-editable-value="App Dev">App Dev</button>
             </div>
         </div>
         <div class="row masonry-active justify-content-between mt-6">
             <div class="grid-sizer"></div>
             <div class="filter-item col-lg-6 col-12 brand ui app">
                 <div class="project-item rounded-4 overflow-hidden position-relative p-md-4 p-3 bg-white">
-                    <a href="work-single.html">
-                        <img class="rounded-3 w-100 zoom-img" src="assets/imgs/projects/projects-1/img-1.png" alt="infinia" />
+                    <a href="work-single.html" id="project-1-item-1-link" data-editable-value="work-single.html">
+                        <img class="rounded-3 w-100 zoom-img" src="assets/imgs/projects/projects-1/img-1.png" alt="Photo App UI/UX" id="project-1-item-1-image" data-editable-value="assets/imgs/projects/projects-1/img-1.png" />
                     </a>
                     <div class="d-flex align-items-center mt-4">
                         <a href="work-single.html" class="project-card-content">
-                            <h3 class="fw-semibold">Photo App UI/UX</h3>
-                            <p>Bokeh network</p>
+                            <h3 class="fw-semibold" id="project-1-item-1-title" data-editable-value="Photo App UI/UX">Photo App UI/UX</h3>
+                            <p id="project-1-item-1-description" data-editable-value="Bokeh network">Bokeh network</p>
                         </a>
                         <a href="work-single.html" class="project-card-icon icon-shape ms-auto icon-md rounded-circle">
                             <i class="ri-arrow-right-up-line"></i>
@@ -543,13 +540,13 @@
             </div>
             <div class="filter-item col-lg-6 col-12 webdesign brand dataanalysis brand">
                 <div class="project-item rounded-4 overflow-hidden position-relative p-md-4 p-3 bg-white">
-                    <a href="work-single.html">
-                        <img class="rounded-3 w-100 zoom-img" src="assets/imgs/projects/projects-1/img-2.png" alt="infinia" />
+                    <a href="work-single.html" id="project-1-item-2-link" data-editable-value="work-single.html">
+                        <img class="rounded-3 w-100 zoom-img" src="assets/imgs/projects/projects-1/img-2.png" alt="Mobile App Design" id="project-1-item-2-image" data-editable-value="assets/imgs/projects/projects-1/img-2.png" />
                     </a>
                     <div class="d-flex align-items-center mt-4">
                         <a href="work-single.html" class="project-card-content">
-                            <h3 class="fw-semibold">Mobile App Design</h3>
-                            <p>Tech Innovators Inc.</p>
+                            <h3 class="fw-semibold" id="project-1-item-2-title" data-editable-value="Mobile App Design">Mobile App Design</h3>
+                            <p id="project-1-item-2-description" data-editable-value="Tech Innovators Inc.">Tech Innovators Inc.</p>
                         </a>
                         <a href="work-single.html" class="project-card-icon icon-shape ms-auto icon-md rounded-circle">
                             <i class="ri-arrow-right-up-line"></i>
@@ -559,13 +556,13 @@
             </div>
             <div class="filter-item col-lg-6 col-12 ui app">
                 <div class="project-item rounded-4 overflow-hidden position-relative p-md-4 p-3 bg-white">
-                    <a href="work-single.html">
-                        <img class="rounded-3 w-100 zoom-img" src="assets/imgs/projects/projects-1/img-3.png" alt="infinia" />
+                    <a href="work-single.html" id="project-1-item-3-link" data-editable-value="work-single.html">
+                        <img class="rounded-3 w-100 zoom-img" src="assets/imgs/projects/projects-1/img-3.png" alt="Interaction Design" id="project-1-item-3-image" data-editable-value="assets/imgs/projects/projects-1/img-3.png" />
                     </a>
                     <div class="d-flex align-items-center mt-4">
                         <a href="work-single.html" class="project-card-content">
-                            <h3 class="fw-semibold">Interaction Design</h3>
-                            <p>HealthTrack Solutions</p>
+                            <h3 class="fw-semibold" id="project-1-item-3-title" data-editable-value="Interaction Design">Interaction Design</h3>
+                            <p id="project-1-item-3-description" data-editable-value="HealthTrack Solutions">HealthTrack Solutions</p>
                         </a>
                         <a href="work-single.html" class="project-card-icon icon-shape ms-auto icon-md rounded-circle">
                             <i class="ri-arrow-right-up-line"></i>
@@ -575,15 +572,15 @@
             </div>
             <div class="filter-item col-lg-6 col-12 app app dataanalysis brand">
                 <div class="project-item rounded-4 overflow-hidden position-relative p-md-4 p-3 bg-white">
-                    <a href="work-single.html">
-                        <img class="rounded-3 w-100 zoom-img" src="assets/imgs/projects/projects-1/img-4.png" alt="infinia" />
+                    <a href="work-single.html" id="project-1-item-4-link" data-editable-value="work-single.html">
+                        <img class="rounded-3 w-100 zoom-img" src="assets/imgs/projects/projects-1/img-4.png" alt="Design Consultation" id="project-1-item-4-image" data-editable-value="assets/imgs/projects/projects-1/img-4.png" />
                     </a>
                     <div class="d-flex align-items-center mt-4">
                         <a href="work-single.html" class="project-card-content">
-                            <h3 class="fw-semibold">Design Consultation</h3>
-                            <p>Creative Pulse Studios</p>
+                            <h3 class="fw-semibold" id="project-1-item-4-title" data-editable-value="Design Consultation">Design Consultation</h3>
+                            <p id="project-1-item-4-description" data-editable-value="Creative Pulse Studios">Creative Pulse Studios</p>
                         </a>
-                        <a href="work-single.html" class="project-card-icon icon-shape ms-auto icon-md rounded-circle">
+                        <a href="work-single.html" class="project-card-icon icon-shape ms-auto icon-md rounded-circle edit-link" id="edit-link-1">
                             <i class="ri-arrow-right-up-line"></i>
                         </a>
                     </div>
@@ -592,33 +589,20 @@
         </div>
     </div>
 </div>
-<div class="contairer overflow-hidden">
-    <div class="row justify-content-center position-relative button-project pb-160 bg-900 pt-1">
-        <a href="work.html" class="icon_hover position-relative z-1 icon-shape icon_150 border-linear-2 rounded-circle position-relative overflow-hidden bg-white hover-up">
-            <span class="icon-shape icon-md bg-linear-2 rounded-circle position-absolute bottom-0 end-0"></span>
-            <p class="m-0 fs-7 fw-bold text-capitalize position-absolute top-50 start-50 translate-middle">
-                View All
-                <i class="ri-arrow-right-up-line fs-7"></i>
-            </p>
-        </a>
-        <div class="ellipse position-absolute bottom-0 start-50 translate-middle-x z-0"></div>
-    </div>
-</div>
 
-            <!-- resume 1 -->
-<section id="resume" class="section-resume-1 position-relative pt-150 overflow-hidden" data-background="assets/imgs/projects/projects-1/background.png">
+            <section id="resume-1" class="section-resume-1 position-relative pt-150 overflow-hidden" data-background="assets/imgs/projects/projects-1/background.png">
     <div class="container">
         <div class="row align-items-end">
             <div class="col-lg-7 me-auto">
-                <h3 class="ds-3 mt-3 mb-3 text-primary">My Resume</h3>
-                <span class="fs-5 fw-medium text-200">
+                <h3 id="resume-1-header" class="ds-3 mt-3 mb-3 text-primary">My Resume</h3>
+                <span id="resume-1-subheader" class="fs-5 fw-medium text-200">
                     I believe that working hard and trying to learn every day will
                     <br />
                     make me improve in satisfying my customers.
                 </span>
             </div>
             <div class="col-lg-auto">
-                <a href="#contact" class="btn btn-gradient mt-lg-0 mt-5 ms-lg-auto">
+                <a id="resume-1-contact-button" href="#contact" class="btn btn-gradient mt-lg-0 mt-5 ms-lg-auto">
                     Get in touch
                     <i class="ri-arrow-right-up-line"></i>
                 </a>
@@ -626,81 +610,81 @@
         </div>
         <div class="row mt-6">
             <div class="col-lg-6 col-12">
-                <div class="resume-card p-lg-6 p-4 mb-lg-0 mb-6">
+                <div id="resume-1-education-card" class="resume-card p-lg-6 p-4 mb-lg-0 mb-6">
                     <div class="resume-card-header d-flex align-items-end">
-                        <img class="border-linear-1 border-3 pb-2 pe-2" src="assets/imgs/resume/resume-1/icon-1.svg" alt="" />
-                        <h3 class="fw-semibold mb-0 border-bottom border-600 border-3 pb-2 w-100">Education</h3>
+                        <img id="resume-1-education-icon" class="border-linear-1 border-3 pb-2 pe-2" src="assets/imgs/resume/resume-1/icon-1.svg" alt="" />
+                        <h3 id="resume-1-education-title" class="fw-semibold mb-0 border-bottom border-600 border-3 pb-2 w-100">Education</h3>
                     </div>
                     <div class="resume-card-body">
-                        <div class="resume-card-item px-4 py-3 mt-5">
+                        <div id="resume-1-education-item-1" class="resume-card-item px-4 py-3 mt-5">
                             <div class="d-flex align-items-end">
                                 <div class="">
-                                    <p class="fw-extra-bold text-linear-1 mb-2">2018-2019</p>
-                                    <h5 class="">Certification in UX Design</h5>
-                                    <p class="text-300 mb-0">University of Stanford</p>
+                                    <p id="resume-1-education-year-1" class="fw-extra-bold text-linear-1 mb-2">2018-2019</p>
+                                    <h5 id="resume-1-education-certification-1" class="">Certification in UX Design</h5>
+                                    <p id="resume-1-education-university-1" class="text-300 mb-0">University of Stanford</p>
                                 </div>
-                                <h3 class="text-linear-1 ms-auto fw-semibold">4.9<span class="fs-4 fw-bold">/5</span></h3>
+                                <h3 id="resume-1-education-grade-1" class="text-linear-1 ms-auto fw-semibold">4.9<span class="fs-4 fw-bold">/5</span></h3>
                             </div>
                         </div>
-                        <div class="resume-card-item px-4 py-3 mt-5">
+                        <div id="resume-1-education-item-2" class="resume-card-item px-4 py-3 mt-5">
                             <div class="d-flex align-items-end">
                                 <div class="">
-                                    <p class="fw-extra-bold text-linear-1 mb-2">2017-2018</p>
-                                    <h5 class="">Certification in Web Dev</h5>
-                                    <p class="text-300 mb-0">University of Stanford</p>
+                                    <p id="resume-1-education-year-2" class="fw-extra-bold text-linear-1 mb-2">2017-2018</p>
+                                    <h5 id="resume-1-education-certification-2" class="">Certification in Web Dev</h5>
+                                    <p id="resume-1-education-university-2" class="text-300 mb-0">University of Stanford</p>
                                 </div>
-                                <h3 class="text-linear-1 ms-auto fw-semibold">5.0<span class="fs-4 fw-bold">/5</span></h3>
+                                <h3 id="resume-1-education-grade-2" class="text-linear-1 ms-auto fw-semibold">5.0<span class="fs-4 fw-bold">/5</span></h3>
                             </div>
                         </div>
-                        <div class="resume-card-item px-4 py-3 mt-5">
+                        <div id="resume-1-education-item-3" class="resume-card-item px-4 py-3 mt-5">
                             <div class="d-flex align-items-end">
                                 <div class="">
-                                    <p class="fw-extra-bold text-linear-1 mb-2">2014-2016</p>
-                                    <h5 class="">Advanced UX/UI Bootcamp</h5>
-                                    <p class="text-300 mb-0">Design Academy</p>
+                                    <p id="resume-1-education-year-3" class="fw-extra-bold text-linear-1 mb-2">2014-2016</p>
+                                    <h5 id="resume-1-education-certification-3" class="">Advanced UX/UI Bootcamp</h5>
+                                    <p id="resume-1-education-university-3" class="text-300 mb-0">Design Academy</p>
                                 </div>
-                                <h3 class="text-linear-1 ms-auto fw-semibold">4.9<span class="fs-4 fw-bold">/5</span></h3>
+                                <h3 id="resume-1-education-grade-3" class="text-linear-1 ms-auto fw-semibold">4.9<span class="fs-4 fw-bold">/5</span></h3>
                             </div>
                         </div>
-                        <div class="resume-card-item px-4 py-3 mt-5">
+                        <div id="resume-1-education-item-4" class="resume-card-item px-4 py-3 mt-5">
                             <div class="d-flex align-items-end">
                                 <div class="">
-                                    <p class="fw-extra-bold text-linear-1 mb-2">2012-2013</p>
-                                    <h5 class="">Certification in Graphic Design</h5>
-                                    <p class="text-300 mb-0">Coursera</p>
+                                    <p id="resume-1-education-year-4" class="fw-extra-bold text-linear-1 mb-2">2012-2013</p>
+                                    <h5 id="resume-1-education-certification-4" class="">Certification in Graphic Design</h5>
+                                    <p id="resume-1-education-university-4" class="text-300 mb-0">Coursera</p>
                                 </div>
-                                <h3 class="text-linear-1 ms-auto fw-semibold">4.8<span class="fs-4 fw-bold">/5</span></h3>
+                                <h3 id="resume-1-education-grade-4" class="text-linear-1 ms-auto fw-semibold">4.8<span class="fs-4 fw-bold">/5</span></h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-12">
-                <div class="resume-card p-lg-6 p-4 h-100">
+                <div id="resume-1-experience-card" class="resume-card p-lg-6 p-4 h-100">
                     <div class="resume-card-header d-flex align-items-end">
-                        <img class="border-linear-1 border-3 pb-2 pe-2" src="assets/imgs/resume/resume-1/icon-2.svg" alt="" />
-                        <h3 class="fw-semibold mb-0 border-bottom border-600 border-3 pb-2 w-100">Experience</h3>
+                        <img id="resume-1-experience-icon" class="border-linear-1 border-3 pb-2 pe-2" src="assets/imgs/resume/resume-1/icon-2.svg" alt="" />
+                        <h3 id="resume-1-experience-title" class="fw-semibold mb-0 border-bottom border-600 border-3 pb-2 w-100">Experience</h3>
                     </div>
                     <div class="resume-card-body">
-                        <div class="resume-card-item px-4 py-3 mt-5">
-                            <p class="fw-extra-bold text-linear-1 mb-2">2019 - Present</p>
-                            <h5 class="">Senior UI/UX Designer</h5>
-                            <p class="text-300 mb-0">Leader in Creative team</p>
+                        <div id="resume-1-experience-item-1" class="resume-card-item px-4 py-3 mt-5">
+                            <p id="resume-1-experience-year-1" class="fw-extra-bold text-linear-1 mb-2">2019 - Present</p>
+                            <h5 id="resume-1-experience-title-1" class="">Senior UI/UX Designer</h5>
+                            <p id="resume-1-experience-description-1" class="text-300 mb-0">Leader in Creative team</p>
                         </div>
-                        <div class="resume-card-item px-4 py-3 mt-5">
-                            <p class="fw-extra-bold text-linear-1 mb-2">2016 - 2019</p>
-                            <h5 class="">UI/UX Designer at BOS Agency</h5>
-                            <p class="text-300 mb-0">Tech Startup</p>
+                        <div id="resume-1-experience-item-2" class="resume-card-item px-4 py-3 mt-5">
+                            <p id="resume-1-experience-year-2" class="fw-extra-bold text-linear-1 mb-2">2016 - 2019</p>
+                            <h5 id="resume-1-experience-title-2" class="">UI/UX Designer at BOS Agency</h5>
+                            <p id="resume-1-experience-description-2" class="text-300 mb-0">Tech Startup</p>
                         </div>
-                        <div class="resume-card-item px-4 py-3 mt-5">
-                            <p class="fw-extra-bold text-linear-1 mb-2">2014-2016</p>
-                            <h5 class="">Freelance UI/UX Designer</h5>
-                            <p class="text-300 mb-0">Self-Employed</p>
+                        <div id="resume-1-experience-item-3" class="resume-card-item px-4 py-3 mt-5">
+                            <p id="resume-1-experience-year-3" class="fw-extra-bold text-linear-1 mb-2">2014-2016</p>
+                            <h5 id="resume-1-experience-title-3" class="">Freelance UI/UX Designer</h5>
+                            <p id="resume-1-experience-description-3" class="text-300 mb-0">Self-Employed</p>
                         </div>
-                        <div class="resume-card-item px-4 py-3 mt-4">
-                            <p class="fw-extra-bold text-linear-1 mb-2">2012 - 2014</p>
-                            <h5 class="">Junior UI Designer</h5>
-                            <p class="text-300 mb-0">Web Solutions team</p>
+                        <div id="resume-1-experience-item-4" class="resume-card-item px-4 py-3 mt-4">
+                            <p id="resume-1-experience-year-4" class="fw-extra-bold text-linear-1 mb-2">2012 - 2014</p>
+                            <h5 id="resume-1-experience-title-4" class="">Junior UI Designer</h5>
+                            <p id="resume-1-experience-description-4" class="text-300 mb-0">Web Solutions team</p>
                         </div>
                     </div>
                 </div>
@@ -709,101 +693,96 @@
     </div>
     <div class="scroll-move-right position-relative pb-160 pt-lg-150">
         <div class="d-flex align-items-center gap-5 wow img-custom-anim-top position-absolute top-50 start-50 translate-middle">
-            <h3 class="stroke fs-150 text-uppercase text-white">Branding . Marketing . User Interface</h3>
+            <h3 id="resume-1-branding-title" class="stroke fs-150 text-uppercase text-white">Branding . Marketing . User Interface</h3>
         </div>
     </div>
 </section>
 
             <!-- Skills 1 -->
-<section class="section-skills-1 position-relative section-padding bg-900">
+<section id="skills-1" class="section-skills-1 position-relative section-padding bg-900">
     <div class="container">
         <div class="row">
             <div class="text-center mb-7">
-                <h3 class="ds-3 mt-3 mb-3 text-primary">My Skills</h3>
-                <span class="fs-5 fw-medium text-200">
+                <h3 id="skills-1-header" class="ds-3 mt-3 mb-3 text-primary">My Skills</h3>
+                <span id="skills-1-subheader" class="fs-5 fw-medium text-200">
                     I thrive on turning complex problems into simple, beautiful
-                    <br class="d-md-block d-none">
+                    <br class="d-md-block d-none" />
                     solutions that enhance user satisfaction.
                 </span>
             </div>
             <div class="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-3 mb-7 px-6">
                 <div class="skills">
                     <div class="skills-icon mb-5">
-                        <img src="assets/imgs/skills/skills-1/icon-1.png" alt="">
+                        <img src="assets/imgs/skills/skills-1/icon-1.png" alt="" />
                     </div>
                     <div class="skills-ratio text-center">
-                        <h3 class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="98"></span>%</h3>
-                        <p class="text-400 fw-medium text-uppercase">Figma</p>
+                        <h3 id="skills-1-figma" class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="98"></span>%</h3>
+                        <p id="skills-1-figma-label" class="text-400 fw-medium text-uppercase">Figma</p>
                     </div>
                 </div>
                 <div class="skills">
                     <div class="skills-icon mb-5">
-                        <img src="assets/imgs/skills/skills-1/icon-2.png" alt="">
+                        <img src="assets/imgs/skills/skills-1/icon-2.png" alt="" />
                     </div>
                     <div class="skills-ratio text-center">
-                        <h3 class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="82"></span>%</h3>
-                        <p class="text-400 fw-medium text-uppercase">Adobe XD</p>
+                        <h3 id="skills-1-adobe-xd" class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="82"></span>%</h3>
+                        <p id="skills-1-adobe-xd-label" class="text-400 fw-medium text-uppercase">Adobe XD</p>
                     </div>
                 </div>
                 <div class="skills">
                     <div class="skills-icon mb-5">
-                        <img src="assets/imgs/skills/skills-1/icon-3.png" alt="">
+                        <img src="assets/imgs/skills/skills-1/icon-3.png" alt="" />
                     </div>
                     <div class="skills-ratio text-center">
-                        <h3 class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="76"></span>%</h3>
-                        <p class="text-400 fw-medium text-uppercase">Illustrator</p>
+                        <h3 id="skills-1-illustrator" class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="76"></span>%</h3>
+                        <p id="skills-1-illustrator-label" class="text-400 fw-medium text-uppercase">Illustrator</p>
                     </div>
                 </div>
                 <div class="skills">
                     <div class="skills-icon mb-5">
-                        <img src="assets/imgs/skills/skills-1/icon-4.png" alt="">
+                        <img src="assets/imgs/skills/skills-1/icon-4.png" alt="" />
                     </div>
                     <div class="skills-ratio text-center">
-                        <h3 class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="58"></span>%</h3>
-                        <p class="text-400 fw-medium text-uppercase">Sketch </p>
+                        <h3 id="skills-1-sketch" class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="58"></span>%</h3>
+                        <p id="skills-1-sketch-label" class="text-400 fw-medium text-uppercase">Sketch</p>
                     </div>
                 </div>
                 <div class="skills">
                     <div class="skills-icon mb-5">
-                        <img src="assets/imgs/skills/skills-1/icon-5.png" alt="">
+                        <img src="assets/imgs/skills/skills-1/icon-5.png" alt="" />
                     </div>
                     <div class="skills-ratio text-center">
-                        <h3 class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="60"></span>%</h3>
-                        <p class="text-400 fw-medium text-uppercase">Photoshop</p>
+                        <h3 id="skills-1-photoshop" class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="60"></span>%</h3>
+                        <p id="skills-1-photoshop-label" class="text-400 fw-medium text-uppercase">Photoshop</p>
                     </div>
                 </div>
                 <div class="skills">
                     <div class="skills-icon mb-5">
-                        <img src="assets/imgs/skills/skills-1/icon-6.png" alt="">
+                        <img src="assets/imgs/skills/skills-1/icon-6.png" alt="" />
                     </div>
                     <div class="skills-ratio text-center">
-                        <h3 class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="72"></span>%</h3>
-                        <p class="text-400 fw-medium text-uppercase">Webflow</p>
+                        <h3 id="skills-1-webflow" class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="72"></span>%</h3>
+                        <p id="skills-1-webflow-label" class="text-400 fw-medium text-uppercase">Webflow</p>
                     </div>
                 </div>
                 <div class="skills">
                     <div class="skills-icon mb-5">
-                        <img src="assets/imgs/skills/skills-1/icon-7.png" alt="">
+                        <img src="assets/imgs/skills/skills-1/icon-7.png" alt="" />
                     </div>
                     <div class="skills-ratio text-center">
-                        <h3 class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="93"></span>%</h3>
-                        <p class="text-400 fw-medium text-uppercase">Framer</p>
+                        <h3 id="skills-1-framer" class="count fw-semibold my-0"><span class="odometer fw-semibold" data-count="93"></span>%</h3>
+                        <p id="skills-1-framer-label" class="text-400 fw-medium text-uppercase">Framer</p>
                     </div>
                 </div>
             </div>
             <div class="text-center">
-                <p class="fs-5 text-200 mb-0">In addition, I have some programming knowledge such as: </p>
-                <div class="d-flex justify-content-center gap-1">
-                    <a href="#" class="fs-5 fw-bold">HTML,</a>
-                    <a href="#" class="fs-5 fw-bold">CSS,</a>
-                    <a href="#" class="fs-5 fw-bold">Javascript,</a>
-                    <a href="#" class="fs-5 fw-bold">Bootstrap,</a>
-                    <a href="#" class="fs-5 fw-bold">TailwindCSS</a>
-                </div>
+                <p id="skills-1-programming-knowledge" class="fs-5 text-200 mb-0">In addition, I have some programming knowledge such as:</p>
+                <div contenteditable="true" class="fs-5 fw-bold text-center" id="skills-1-editable" style="border: 1px solid #ccc; padding: 10px; border-radius: 5px;">HTML, CSS, Javascript, Bootstrap, TailwindCSS</div>
             </div>
         </div>
     </div>
 </section>
+
             <!-- brands 1 -->
 <section class="section-brands-1 section-padding">
     <div class="container">

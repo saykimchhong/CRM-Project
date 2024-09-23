@@ -796,7 +796,7 @@
                             display: flex;
                             border-radius: 11px;
                             // width: 40%;
-                            height: 300px;
+                            // height: 300px;
                             flex-shrink: 0;
                             .card__image {
                                 width: 100%;
@@ -1076,6 +1076,7 @@
     background-color: #d32f2f;
 }
 
+
 /* Modal Overlay Styling */
 .modal-overlay {
     position: fixed; /* Stay in place */
@@ -1116,3 +1117,12 @@
   body {
     animation: slideUpFadeIn 0.5s ease-out; /* Adjust duration and easing */
   }
+// Editable input
+  .editable {
+    border: 1px dashed #ccc;
+    padding: 5px;
+}
+.disabled {
+    pointer-events: none; /* Prevent any clicks */
+    opacity: 0.5; /* Dim the appearance */
+}

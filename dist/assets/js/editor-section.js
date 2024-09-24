@@ -104,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
             editorInstances = {};
             disableEditing();
             disableLinksAndButtons(false);
+            // Refresh the page
+            location.reload();
         } catch (error) {
             console.error('Error saving changes to Firestore:', error);
         }

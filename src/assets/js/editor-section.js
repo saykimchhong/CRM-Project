@@ -1,3 +1,5 @@
+// Function for editing content on the website
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
